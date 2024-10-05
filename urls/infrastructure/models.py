@@ -1,4 +1,6 @@
+import uuid
 from django.db import models
+from django.contrib.auth.models import User
 from django.core.validators import URLValidator
 from django.core.exceptions import ValidationError
 import re
@@ -11,11 +13,13 @@ def validate_youtube_url(value):
         raise ValidationError('Esta não é uma URL válida do YouTube.')
 
 class VideoURL(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     url = models.URLField(
         max_length=200,
         validators=[URLValidator(), validate_youtube_url],
         unique=True,
     )
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     added_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

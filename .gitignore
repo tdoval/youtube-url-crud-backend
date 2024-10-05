@@ -1,0 +1,44 @@
+# Python
+*.pyc
+__pycache__/
+
+# Django migrations
+*/migrations/*.pyc
+*/migrations/*.py
+
+# Environment variables
+.env
+
+# SQLite database (se estiver usando SQLite)
+*.sqlite3
+
+# macOS
+.DS_Store
+
+# Virtual environments
+venv/
+env/
+
+# IDEs and editors
+.vscode/
+.idea/
+
+# Log files
+*.log
+
+# Byte-compiled / optimized / DLL files
+*.py[cod]
+*.so
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+coverage.xml
+*.cover
+.hypothesis/
+
+# Static files
+staticfiles/
+
+# Media files
+media/

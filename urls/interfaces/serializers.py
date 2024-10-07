@@ -7,7 +7,6 @@ class VideoURLSerializer(serializers.ModelSerializer):
         model = VideoURL
         fields = ['id', 'url', 'added_at']
 
-
 class UserRegistrationSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
 

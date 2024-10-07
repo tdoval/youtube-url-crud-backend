@@ -26,6 +26,12 @@ def test_jwt_authentication():
     assert access_token is not None
 
 @pytest.mark.django_db
+def test_jwt_authentication_fail():
+    client = APIClient()
+    response = client.post('/api/token/', {'username': 'wronguser', 'password': 'wrongpass'})
+    assert response.status_code == 401
+
+@pytest.mark.django_db
 def test_crud_videourl():
     client, access_token = create_user_and_get_token()
     client.credentials(HTTP_AUTHORIZATION=f'Bearer {access_token}')
@@ -61,3 +67,18 @@ def test_update_videourl():
 
     updated_video = VideoURLRepository.get_video_by_id(video_id)
     assert updated_video.url == 'https://www.youtube.com/watch?v=9bZkp7q19f0'
+
+@pytest.mark.django_db
+def test_create_invalid_videourl():
+    client, access_token = create_user_and_get_token()
+    client.credentials(HTTP_AUTHORIZATION=f'Bearer {access_token}')
+
+    response = client.post('/api/videos/', {'url': 'invalid-url'})
+    assert response.status_code == 400
+
+@pytest.mark.django_db
+def test_create_videourl_without_authentication():
+    client = APIClient()
+
+    response = client.post('/api/videos/', {'url': 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'})
+    assert response.status_code == 401

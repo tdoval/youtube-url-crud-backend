@@ -8,7 +8,7 @@ class VideoURLRepository:
 
     @staticmethod
     def create_url(url, user):
-        return VideoURL.objects.create(url=url, user=user)
+        return VideoURL.objects.create(url=url, user=user, name=None)
 
     @staticmethod
     def get_user_videos(user):

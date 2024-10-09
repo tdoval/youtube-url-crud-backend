@@ -17,7 +17,7 @@ class VideoURLListCreateView(generics.ListCreateAPIView):
         return VideoURLRepository.get_user_videos(self.request.user)
 
     def perform_create(self, serializer):
-        VideoURLRepository.create_url(serializer.validated_data['url'], self.request.user)
+        VideoURLRepository.create_url(serializer.validated_data['url'], self.request.user, name=serializer.validated_data.get('name', None))
 
 class VideoURLUpdateView(generics.UpdateAPIView):
     queryset = VideoURL.objects.all()

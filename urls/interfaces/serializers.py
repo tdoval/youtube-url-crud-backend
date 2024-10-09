@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class VideoURLSerializer(serializers.ModelSerializer):
     class Meta:
         model = VideoURL
-        fields = ['id', 'url', 'added_at']
+        fields = ['id', 'url', 'name', 'added_at']
 
 class UserRegistrationSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)

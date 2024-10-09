@@ -12,6 +12,7 @@ class VideoURLManager(models.Manager):
 class VideoURL(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     url = models.URLField(max_length=255, validators=[URLValidator(), validate_youtube_url])
+    name = models.CharField(max_length=100, blank=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     added_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)

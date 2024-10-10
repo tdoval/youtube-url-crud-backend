@@ -24,6 +24,17 @@ class VideoURLUpdateView(generics.UpdateAPIView):
     serializer_class = VideoURLSerializer
     permission_classes = [permissions.IsAuthenticated, IsOwner]
 
+    def patch(self, request, *args, **kwargs):
+        partial = kwargs.pop('partial', True)
+        instance = self.get_object()
+        serializer = self.get_serializer(instance, data=request.data, partial=partial)
+        serializer.is_valid(raise_exception=True)
+        self.perform_update(serializer)
+        return Response(serializer.data)
+
+    def perform_update(self, serializer):
+        serializer.save()
+
 class VideoURLDeleteView(generics.DestroyAPIView):
     queryset = VideoURL.objects.all()
     serializer_class = VideoURLSerializer

@@ -57,8 +57,8 @@ SECRET_KEY=<sua_chave_secreta>
 DB_NAME=<seu_nome_de_banco_de_dados>
 DB_USER=<seu_usuario_de_banco_de_dados>
 DB_PASSWORD=<sua_senha_de_banco_de_dados>
-DB_HOST=db
-DB_PORT=5432
+DB_HOST=<seu_host_db>
+DB_PORT=<seu_port>
 ```
 
 ### 3 Build e Execução

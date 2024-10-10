@@ -135,34 +135,34 @@ python manage.py migrate
 
 ## Melhorias Futuras
 
-### 1. Implementação de Cache
+1. Implementação de Cache
 
 - Melhorar a performance utilizando um sistema de cache (como Redis) para armazenar respostas de URLs frequentemente acessadas ou dados que não mudam com frequência.
 
-### 2. Paginação e Busca Otimizadas
+2. Paginação e Busca Otimizadas
 
 - Busca eficiente e paginação nas listas de URLs, principalmente se o volume de dados crescer.
 
-### 3. Monitoramento e Logs Avançados
+3. Monitoramento e Logs Avançados
 
 - Integrar uma ferramenta de monitoramento e logs (como ELK Stack, Grafana, ou Prometheus)
 
-### 4. Rate Limiting e Proteção contra Abuso
+4. Rate Limiting e Proteção contra Abuso
 
 - Rate limiting por usuário ou IP
 
-### 5. Melhoria na Validação das URLs do YouTube
+5. Melhoria na Validação das URLs do YouTube
 
 - Implementar uma validação mais robusta das URLs do YouTube
 
-### 6. Deploy Automatizado com CI/CD
+6. Deploy Automatizado com CI/CD
 
 - Automatizar o processo de deploy utilizando pipelines de CI/CD
 
-### 7. Documentação da API
+7. Documentação da API
 
 - Ferramentas como Swagger ou Redoc
 
-### 8. Teste de Performance e Stress Testing
+8. Teste de Performance e Stress Testing
 
 - testar como o sistema se comporta sob carga (Locust ou JMeter)
